@@ -1,0 +1,151 @@
+.section {
+    margin-top: 20px;
+}
+
+.sectionFirst {
+    overflow-y: hidden;
+}
+
+
+.body {
+    padding: 50px 40px;
+    border-radius: 35px;
+    background-color: #1E1E1E;
+    display: flex;
+    color: #EDEDED;
+    position: relative;
+}
+
+.item:first-child {
+    flex-basis: 60%;
+}
+
+.item:last-child {
+    flex-basis: 40%;
+}
+
+.imgWrapper {
+    position: absolute;
+    right: 0;
+    bottom: -100px;
+
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.description {
+    margin-top: 30px;
+    max-width: 510px;
+}
+
+.txt {
+    margin-top: 15px;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.legal {
+    display: inline-block;
+    margin-top: 100px;
+    font-size: 22px;
+    line-height: 1.4;
+    opacity: .8;
+    max-width: 340px;
+}
+
+
+.sectionFirst .txt {
+    max-width: 380px;
+    line-height: 1.4;
+}
+
+.sectionFirst .legal {
+    margin-top: 250px;
+}
+
+.sectionFirst .imgWrapper {
+    right: -40px
+}
+
+@media(max-width:1240px) {
+    .title {
+        font-size: 48px;
+    }
+
+    .txt {
+        font-size: 16px;
+    }
+
+    .sectionFirst .legal {
+        margin-top: 50px;
+    }
+
+    .legal {
+        font-size: 16px;
+    }
+
+    .imgWrapper {
+        max-width: 500px;
+        margin-bottom: -40px;
+    }
+
+    .img {
+        display: block;
+        width: 100%;
+        object-fit: contain;
+    }
+
+}
+
+@media(max-width:1080px) {
+    .title {
+        font-size: 40px;
+    }
+
+    .imgWrapper {
+        max-width: 400px;
+    }
+
+    .legal {
+        margin-top: 30px;
+    }
+}
+
+@media(max-width:1023px) {
+    .imgWrapper {
+        display: none;
+    }
+
+    .item:first-child {
+        flex-basis: 100%;
+    }
+
+    .description {
+        max-width: 100%;
+    }
+}
+
+@media(max-width:767px) {
+    .body {
+        border-radius: 24px;
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .txt {
+        font-size: 18px;
+    }
+
+    .legal {
+        font-size: 18px;
+    }
+}

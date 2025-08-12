@@ -1,0 +1,196 @@
+.swiper {
+    overflow: visible;
+}
+
+.navigationButtons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    max-width: 180px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 66px;
+}
+
+.reviewsBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 66px;
+    height: 66px;
+    border: 2px solid var(--color-black);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: opacity .3s;
+}
+
+.reviewsBtn:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    ;
+}
+
+.arrow {
+    width: 22px;
+}
+
+.arrow path {
+    fill: var(--color-black);
+}
+
+.arrowLeft {
+    transform: rotate(-135deg);
+}
+
+.arrowRight {
+    transform: rotate(45deg);
+}
+
+.img {
+    border: 2px solid var(--color-black);
+    border-radius: 35px;
+    transition: opacity .3s;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.slideContent {
+    position: relative;
+    width: 315px;
+    border-radius: 35px;
+    background: linear-gradient(206deg, #1E1E1E 0%, rgba(56, 57, 57, 0.93) 100%);
+    cursor: pointer;
+
+}
+
+.slideContent:hover .img {
+    opacity: 0;
+}
+
+.slideContent:hover .slideTxt {
+    opacity: 1;
+    transform: none;
+}
+
+.slideTxt {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    left: 38px;
+    top: 56px;
+    width: 240px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .3s;
+}
+
+.slideTitle {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.slideDescr {
+    margin-top: 15px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.slideLabel {
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--color-black);
+    border-radius: 53px;
+    background: #7BF2DA;
+    padding: 6px 22px;
+    text-transform: lowercase;
+}
+
+@media(max-width: 1023px) {
+    .slideContent {
+        margin: 0 auto;
+    }
+}
+
+.popupOverlay {
+    opacity: 0;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(25px);
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: all .3s;
+}
+
+.popupImage {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    border-radius: 35px;
+    border: 2px solid #1E1E1E;
+    box-shadow: 0px 2px 50px -6px rgba(123, 242, 218, 0.50);
+}
+
+.popupContent {
+    position: relative;
+}
+
+
+.closeButton {
+    position: absolute;
+    top: 0;
+    right: -90px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 50%;
+    transition: all .3s;
+}
+
+.closeButton:hover {
+    opacity: .7;
+}
+
+.closeButton::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 15px;
+    top: 15px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"><g clip-path="url(%23clip0_52_352)"><path d="M27.38 24.5951L16.8 14L27.38 3.40487C28.16 2.62375 28.16 1.36195 27.38 0.580832C26.6 -0.200284 25.34 -0.200284 24.56 0.580832L13.98 11.176L3.4 0.580832C2.62 -0.200284 1.36 -0.200284 0.579995 0.580832C-0.200005 1.36195 -0.200005 2.62375 0.579995 3.40487L11.16 14L0.579995 24.5951C-0.200005 25.3763 -0.200005 26.6381 0.579995 27.4192C0.979995 27.8197 1.48 28 2 28C2.52 28 3.02 27.7997 3.42 27.4192L14 16.824L24.58 27.4192C24.98 27.8197 25.48 28 26 28C26.52 28 27.02 27.7997 27.42 27.4192C28.2 26.6381 28.2 25.3763 27.42 24.5951H27.38Z" fill="%231E1E1E"/></g><defs><clipPath id="clip0_52_352"><rect width="28" height="28" fill="white"/></clipPath></defs></svg>');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50% 50%;
+}
+
+
+.fadeIn {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fadeOut {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}

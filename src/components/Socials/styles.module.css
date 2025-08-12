@@ -1,0 +1,34 @@
+.socials {
+    display: flex;
+    gap: 20px;
+}
+
+.socialIcon,
+.socialIcon circle,
+.socialIcon path {
+    transition: all .3s;
+}
+
+.socialIcon:hover circle {
+    fill: #000;
+}
+
+.socialIcon:hover path:first-child {
+    fill: #000;
+}
+
+.socialIcon:hover path:last-child {
+    fill: var(--color-primary);
+}
+
+.socialLinkDisable {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@media(max-width:767px) {
+    .socialIcon {
+        width: 48px;
+        height: 48px;
+    }
+}

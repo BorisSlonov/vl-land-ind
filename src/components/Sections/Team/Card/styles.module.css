@@ -1,0 +1,153 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.imageContainer {
+    position: relative;
+    background-color: #4DE2C4;
+    border-radius: 35px;
+    height: 320px;
+}
+
+.headCard .imageContainer {
+    background-color: #ED9243;
+
+}
+
+.img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+}
+
+.img_1 {
+    left: -30px;
+    bottom: -30px;
+}
+
+.img_4,
+.img_5,
+.img_2 {
+    bottom: -30px;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.img_3 {
+    max-width: 80%;
+    left: -30px;
+    bottom: -30px;
+    right: auto;
+}
+
+.img_4 {
+    max-width: 80%;
+}
+
+.body {
+    flex-grow: 1;
+    padding: 90px 45px;
+    color: #EDEDED;
+    background-color: #1E1E1E;
+    border-bottom-right-radius: 35px;
+    border-bottom-left-radius: 35px;
+    margin-top: -45px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 130%;
+    text-transform: uppercase;
+}
+
+.position {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--black, #1E1E1E);
+    border-radius: 53px;
+    background: var(--green, #4DE2C4);
+    font-size: 20px;
+    padding: 6px 24px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.headCard .position {
+    background: var(--orange, #FFA43E);
+}
+
+.contacts {
+    margin-top: 40px;
+}
+
+.link {
+    display: inline-block;
+    color: var(--white, #FFF);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+
+.link:hover {
+    opacity: .75;
+}
+
+.phones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+@media(max-width:767px) {
+    .img {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        max-width: 375px;
+    }
+
+    .img_1 {
+        display: block;
+        top: 55%;
+    }
+
+    .img_2 {
+        top: 55%;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .position {
+        font-size: 16px;
+    }
+
+    .link {
+        font-size: 14px;
+    }
+
+    .contacts {
+        margin-top: 20px;
+    }
+
+    .body {
+        padding: 100px 30px 60px;
+    }
+}

@@ -1,0 +1,32 @@
+.section {
+    background: linear-gradient(90deg, #E3A55F 0%, rgba(227, 165, 95, 0.54) 50%, #7BF2DA 100%);
+}
+
+.programs {
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    display: inline-block;
+    color: var(--color-black);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 110%;
+    text-transform: uppercase;
+    padding: 15px 30px;
+    margin: 15px 0;
+    border-right: 2px solid var(--color-black);
+    transition: all .3s;
+}
+
+.link:hover {
+    opacity: .75;
+}
+
+@media(max-width:767px) {
+
+    .link {
+        font-size: 16px;
+    }
+}

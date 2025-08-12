@@ -1,0 +1,119 @@
+.section {
+    position: relative;
+    padding: 140px 0;
+
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+@media(max-width:767px) {
+    .section {
+        padding: 70px 0;
+    }
+
+    .body {
+        padding: 30px 20px;
+    }
+}
+
+.item:last-child {
+    max-width: 870px;
+}
+
+.itemFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.h2 {
+    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 500;
+    color: #EDEDED;
+    text-transform: none;
+}
+
+.subtitle {
+    margin-top: 20px;
+    font-weight: 300;
+    opacity: .6;
+    max-width: 470px;
+    font-size: clamp(16px, 1.5vw, 24px);
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contactsA {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    transition: all .3s;
+    color: #EDEDED;
+}
+
+
+.contactsA:hover {
+    color: var(--color-primaryHover);
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.socialsIcon {
+    transition: all .3s;
+}
+
+.socialsIcon path,
+.socialsIcon circle,
+.socialsIcon rect {
+    stroke: var(--color-primary);
+    transition: all .3s;
+}
+
+.socialsIcon path {
+    fill: var(--color-primary);
+}
+
+.socialsIcon:hover path {
+    fill: var(--color-primary);
+}
+
+.socialsIcon:hover circle:last-child,
+.socialsIcon:hover rect {
+    stroke: var(--color-primary);
+}
+
+.socialsIcon:hover {
+    opacity: .75;
+}
+
+
+@media(max-width:767px) {
+    .body {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contacts,
+    .socials {
+        margin-top: 24px;
+    }
+
+    .contacts {
+        margin-bottom: 20px;
+    }
+
+    .h2 {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,10 @@
+.mapWrapper {
+    display: block;
+    position: relative;
+    margin-top: 100px;
+}
+
+.map {
+    border-radius: 20px !important;
+    position: relative;
+}

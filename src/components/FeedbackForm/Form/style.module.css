@@ -1,0 +1,140 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formItemW100 {
+  width: 100%;
+  flex-basis: 100%;
+}
+
+.formItemW100 :global(#description) {
+  border-radius: 25px;
+}
+
+.btnWrapper {
+  width: 100%;
+  max-width: 240px;
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  max-width: 240px;
+  height: 60px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 60px;
+  color: #1e1e1e;
+  background-color: #ededed;
+  font-size: 20px;
+  border: transparent;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+  transition: all .3s;
+}
+
+.btn span {
+  position: relative;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-primary);
+  z-index: 0;
+  transform: translateY(100%);
+  transition: all .3s;
+}
+
+.btn:hover.btn::before {
+  transform: translateY(0);
+}
+
+.formItemFooter {
+  display: flex;
+  width: 100%;
+  flex-basis: 100%;
+  color: var(--Light-Gray, #f2f4f5);
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.btnWrapper {
+  margin-left: auto;
+}
+
+.checkbox {
+  max-width: 20px;
+  margin-right: 20px;
+}
+
+.checkbox:checked+.formLabelCheckbox::before {
+  background-color: red;
+}
+
+.checkbox span {
+  display: none;
+}
+
+.privacyTxt {
+  font-weight: 300;
+  max-width: 330px;
+  font-size: 12px;
+}
+
+.privacyTxt a {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .form {
+    flex-direction: column;
+  }
+}
+
+.successMessage {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #ffffffb9;
+  backdrop-filter: blur(2px);
+}
+
+.successMessageP {
+  font-size: 20px;
+  color: var(--color-black);
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (max-width: 767px) {
+  .formItemFooter {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+  }
+
+  .btnWrapper,
+  .btn {
+    max-width: 100%;
+  }
+}

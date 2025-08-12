@@ -1,0 +1,32 @@
+const ArrowBtn = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+    >
+      <path
+        d="M1 10L19 10"
+        stroke="#EDEDED"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M11 1L19 10"
+        stroke="#EDEDED"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M11 19L19 10"
+        stroke="#EDEDED"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+    </svg>
+  );
+};
+
+export default ArrowBtn;

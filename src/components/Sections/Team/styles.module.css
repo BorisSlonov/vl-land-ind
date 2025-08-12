@@ -1,0 +1,41 @@
+.section {
+    padding-top: 140px;
+}
+
+.h2 {
+    margin-bottom: 60px;
+}
+
+.staff {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.staff_mt20 {
+    margin-top: 40px;
+}
+
+.item {
+    flex-basis: calc(100% / 3 - 14px);
+}
+
+@media(max-width:1023px) {
+    .section {
+        padding-top: 70px;
+    }
+
+    .item {
+        flex-basis: calc(100% / 2 - 20px);
+    }
+}
+
+@media(max-width:767px) {
+    .h2 {
+        margin-bottom: 30px;
+    }
+
+    .item {
+        flex-basis: 100%;
+    }
+}
