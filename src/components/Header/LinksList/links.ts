@@ -1,4 +1,13 @@
-export const links = [
+export interface HeaderLink {
+  linkText: string;
+  link?: string;
+  subLinks?: {
+    linkText: string;
+    link: string;
+  }[];
+}
+
+export const links: HeaderLink[] = [
   {
     linkText: "Характеристики",
     link: "/#characteristics",
