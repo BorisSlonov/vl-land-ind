@@ -3,11 +3,12 @@ import styles from "./style.module.css";
 import Link from "next/link";
 import Socials from "../Socials";
 import LogoIcon from "@/shared/ui/icons/LogoIcon";
+import clsx from "clsx";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className="container">
+      <div className={clsx("container", styles.container)}>
         <div className={styles.body}>
           <div className={styles.left}>
             <div className={styles.leftTop}>

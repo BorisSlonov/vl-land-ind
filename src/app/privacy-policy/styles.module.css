@@ -22,7 +22,8 @@
 }
 
 .h2 {
-    font-size: 30px;
+    font-family: '__Jost_675d60', '__Jost_Fallback_675d60';
+    font-size: 24px;
     color: var(--color-primary);
     font-weight: 600;
     margin-top: 50px;

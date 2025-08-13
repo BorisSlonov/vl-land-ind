@@ -76,11 +76,10 @@
 .checkbox {
   max-width: 20px;
   margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
-.checkbox:checked+.formLabelCheckbox::before {
-  background-color: red;
-}
 
 .checkbox span {
   display: none;

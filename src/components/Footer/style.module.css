@@ -18,7 +18,6 @@
 
 .left {
     width: 100%;
-    max-width: 55%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -28,6 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
     max-width: 580px;
     align-items: flex-end;
 }
@@ -37,6 +37,14 @@
     flex-direction: row;
     gap: 24px;
     align-items: center;
+}
+
+.links a {
+    transition: all .3s;
+}
+
+.links a:hover {
+    color: var(--color-primary)
 }
 
 .leftTop {
@@ -131,6 +139,10 @@
 
 .a:hover {
     color: var(--color-primary);
+}
+
+.container {
+    max-width: 1120px;
 }
 
 @media(max-width:1023px) {

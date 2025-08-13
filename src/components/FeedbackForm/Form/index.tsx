@@ -107,6 +107,19 @@ const Form = () => {
       />
 
       <div className={styles.formItemFooter}>
+        <div className={styles.btnWrapper}>
+          <button className={styles.btn} type="submit" disabled={isLoading}>
+            <span> {isLoading ? "Отправляем..." : "Отправить"}</span>
+          </button>
+
+          {isSuccess && (
+            <div className={styles.successMessage}>
+              <p className={styles.successMessageP}>
+                Спасибо за заявку, мы свяжемся с вами в ближайшее время!
+              </p>
+            </div>
+          )}
+        </div>
         <div className={styles.checkbox}>
           <FormItem
             label=""
@@ -123,20 +136,6 @@ const Form = () => {
           <a href="/persosnal-data">согласие на обработку</a> своих персональных
           данных в соответствии с{" "}
           <a href="/privacy-policy">политикой конфиденциальности</a>
-        </div>
-
-        <div className={styles.btnWrapper}>
-          <button className={styles.btn} type="submit" disabled={isLoading}>
-            <span> {isLoading ? "Отправляем..." : "Отправить"}</span>
-          </button>
-
-          {isSuccess && (
-            <div className={styles.successMessage}>
-              <p className={styles.successMessageP}>
-                Спасибо за заявку, мы свяжемся с вами в ближайшее время!
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </form>
