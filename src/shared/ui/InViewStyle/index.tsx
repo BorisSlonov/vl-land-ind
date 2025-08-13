@@ -24,13 +24,36 @@ export function InViewStyle({
   ...props
 }: InViewAnimationProps) {
   const { ref, inView } = useInView(props);
-  const Component = as as keyof JSX.IntrinsicElements;
+  const classNames = clsx(className, initialClass, inView && animationClass);
+
+  if (as === "span") {
+    return (
+      <span
+        ref={ref as (node: HTMLSpanElement | null) => void}
+        className={classNames}
+      >
+        {children}
+      </span>
+    );
+  }
+
+  if (as === "p") {
+    return (
+      <p
+        ref={ref as (node: HTMLParagraphElement | null) => void}
+        className={classNames}
+      >
+        {children}
+      </p>
+    );
+  }
+
   return (
-    <Component
-      ref={ref as any}
-      className={clsx(className, initialClass, inView && animationClass)}
+    <div
+      ref={ref as (node: HTMLDivElement | null) => void}
+      className={classNames}
     >
       {children}
-    </Component>
+    </div>
   );
 }
