@@ -10,19 +10,19 @@ const ArrowBtn = () => {
       <path
         d="M1 10L19 10"
         stroke="#EDEDED"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-linecap="round"
       />
       <path
         d="M11 1L19 10"
         stroke="#EDEDED"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-linecap="round"
       />
       <path
         d="M11 19L19 10"
         stroke="#EDEDED"
-        stroke-width="2"
+        strokeWidth="2"
         stroke-linecap="round"
       />
     </svg>
