@@ -86,6 +86,8 @@
     object-fit: cover;
     display: block;
     border-radius: 20px;
+    will-change: transform;
+    transition: transform .2s linear;
 }
 
 /* Overlay text on the first card */
@@ -146,6 +148,8 @@
     max-height: 800px;
     object-fit: cover;
     border-radius: 20px;
+    will-change: transform;
+    transition: transform .2s linear;
 }
 
 /* ====== Responsive ====== */

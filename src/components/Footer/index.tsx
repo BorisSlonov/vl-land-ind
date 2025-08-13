@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style.module.css";
 import Link from "next/link";
 import Socials from "../Socials";
-import Image from "next/image";
+import LogoIcon from "@/shared/ui/icons/LogoIcon";
 
 const Footer = () => {
   return (
@@ -11,35 +11,26 @@ const Footer = () => {
         <div className={styles.body}>
           <div className={styles.left}>
             <div className={styles.leftTop}>
-              <Image
-                className={styles.logo}
-                width={236}
-                height={40}
-                alt="логотип тек-ноу"
-                src={"/landing_indicator/logo_tk.svg"}
-              />
-              <a
-                href="https://tek-know.ru"
-                target="_blank"
-                className={styles.domain}
-              >
-                tek-know.ru
-              </a>
+              <LogoIcon className={styles.logo} />
             </div>
             <div className={styles.leftBottom}>
-              <p>г. Санкт-Петербург, пр. Елизарова, д. 31, к.2 литера А</p>
-              <p>+7 812 324-56-27</p>
-              <p>+7 812 324-56-28</p>
-              <p>info@tek-know.ru</p>
+              <p>Санкт-Петербург, ул. Шпалерная, 24 литера А</p>
+              <p>edu@vibro-laser.com</p>
+              <p>8 (812) 900-50-51</p>
             </div>
           </div>
 
           <div className={styles.right}>
             <div className={styles.links}>
               <Link href="/privacy-policy">Политика конфиденциальности</Link>
-              <Link href="/personal-data">Пользовательское соглашение</Link>
+              <Link href="/personal-data">
+                Согласие на обработку персональных данных
+              </Link>
             </div>
-            <Socials />
+            <div className={styles.studySocials}>
+              <p className={styles.study}>Учитесь с УЦПК ВИБРО-ЛАЗЕР</p>
+              <Socials />
+            </div>
           </div>
         </div>
       </div>

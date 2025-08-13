@@ -11,8 +11,8 @@ interface Props {
 
 const Socials = ({ className }: Props) => {
   const socialLinks = [
-    { icon: VKIcon, url: "https://vk.com/vibrolaser", alt: "VK" },
     { icon: TGIcon, url: "https://t.me/vibrolaseredu", alt: "Telegram" },
+    { icon: VKIcon, url: "https://vk.com/vibrolaser", alt: "VK" },
   ];
 
   return (

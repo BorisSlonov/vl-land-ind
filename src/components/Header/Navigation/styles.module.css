@@ -13,13 +13,14 @@
 
 .navLink {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   transition: all 0.3s;
   padding: 8px 16px;
   will-change: background-color, font-weight;
   border-radius: 50px;
   text-decoration: none;
   color: #EDEDED;
+  opacity: .8;
   transition: all .3s;
 }
 

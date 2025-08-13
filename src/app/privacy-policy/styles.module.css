@@ -8,10 +8,12 @@
     margin-top: 45px;
     padding: 40px 30px;
     border-radius: 35px;
-    background: var(--light-grey-2, #F5F5F5);
+    background: var(--light-grey-2, #EDEDED);
+    color: #1E1E1E;
 }
 
 .h1 {
+    margin-bottom: 40px;
     margin-top: 40px;
     font-size: 48px;
     font-weight: 600;
@@ -21,7 +23,7 @@
 
 .h2 {
     font-size: 30px;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-weight: 600;
     margin-top: 50px;
     max-width: 1180px;
@@ -42,11 +44,14 @@
 }
 
 .main ul {
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     list-style: none;
+}
+
+.main ul:not(:first-child) {
+    margin-top: 20px;
 }
 
 .bold {
@@ -150,15 +155,13 @@
 }
 
 
-
 @media(max-width:1023px) {
     .h1 {
         font-size: 24px;
-        margin-top: 70px;
     }
 
     .content {
-        margin-top: 24px;
+        margin-top: 60px;
         padding: 20px 15px;
     }
 
@@ -195,6 +198,7 @@
 @media(max-width:767px) {
     .h1 {
         font-size: 18px;
+        margin-bottom: 20px;
     }
 
     .h2 {

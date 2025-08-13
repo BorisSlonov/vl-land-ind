@@ -55,6 +55,25 @@ const KitSubtract = () => {
               <p className={s.prodName}>Цепное крепление</p>
               <p className={s.prodInfo}>2 шт. | В сборе</p>
             </div>
+            <div className={clsx(s.item, s.item_7)}>
+              <div className={s.imgWrapper}>
+                <InViewStyle
+                  initialClass="bottomToTop"
+                  animationClass="visible"
+                  triggerOnce
+                >
+                  <Image
+                    width={357}
+                    height={357}
+                    className={s.img}
+                    src={"/landing_indicator/kit/7.png"}
+                    alt={""}
+                  />
+                </InViewStyle>
+              </div>
+              <p className={s.prodName}>Измерительная планка</p>
+              <p className={s.prodInfo}>1 шт.</p>
+            </div>
             <div className={clsx(s.item, s.item_3)}>
               <div className={s.imgWrapper}>
                 <InViewStyle

@@ -1,10 +1,46 @@
+"use client";
+
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { InViewStyle } from "@/shared/ui/InViewStyle";
 
 const DigitalAlignment = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const img1Ref = useRef<HTMLImageElement | null>(null);
+  const img2Ref = useRef<HTMLImageElement | null>(null);
+  const [img1Offset, setImg1Offset] = useState(0);
+  const [img2Offset, setImg2Offset] = useState(0);
+
+  useEffect(() => {
+    const handle = () => {
+      const el = sectionRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const viewportH = window.innerHeight || 0;
+      const sectionCenterDelta = viewportH / 2 - (rect.top + rect.height / 2);
+      const normalized = sectionCenterDelta / viewportH; // ~[-1,1]
+      const offset1 = Math.max(-20, Math.min(20, normalized * 20));
+      const offset2 = Math.max(-15, Math.min(15, normalized * 15));
+      setImg1Offset(offset1);
+      setImg2Offset(offset2);
+    };
+    handle();
+    window.addEventListener("scroll", handle, { passive: true });
+    window.addEventListener("resize", handle);
+    return () => {
+      window.removeEventListener("scroll", handle);
+      window.removeEventListener("resize", handle);
+    };
+  }, []);
+
   return (
-    <section className={styles.sectuion} id="characteristics">
+    <section
+      ref={sectionRef as any}
+      className={styles.sectuion}
+      id="characteristics"
+    >
       <div className="container">
         <div className={styles.header}>
           <h2 className={clsx("h2", styles.h2)}>
@@ -25,41 +61,141 @@ const DigitalAlignment = () => {
           <div className={clsx(styles.item, styles.item_1)}>
             <div className={clsx(styles.gridItem, styles.gridItem_1)}>
               <Image
+                ref={img1Ref as any}
                 width={745}
                 height={228}
                 className={styles.img_1}
+                style={{ transform: `translateY(${img1Offset}px)` }}
                 src={"/landing_indicator/digital/1.png"}
                 alt={"Электронные индикаторы"}
               />
-              <p className={styles.gridTitle}>Электронные индикаторы</p>
-              <span className={styles.gridSubtitle}>Тип датчика</span>
+              <InViewStyle
+                as="p"
+                className={styles.gridTitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Электронные индикаторы
+              </InViewStyle>
+              <InViewStyle
+                as="span"
+                className={styles.gridSubtitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Тип датчика
+              </InViewStyle>
             </div>
             <div className={clsx(styles.gridItem, styles.gridItem_2)}>
-              <p className={styles.gridTitle}>20–450 мм</p>
-              <span className={styles.gridSubtitle}>Диаметр валов</span>
+              <InViewStyle
+                as="p"
+                className={styles.gridTitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                20–450 мм
+              </InViewStyle>
+              <InViewStyle
+                as="span"
+                className={styles.gridSubtitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Диаметр валов
+              </InViewStyle>
             </div>
             <div className={clsx(styles.gridItem, styles.gridItem_3)}>
-              <p className={styles.gridTitle}>0,01 мм</p>
-              <span className={styles.gridSubtitle}>Шаг измерения </span>
+              <InViewStyle
+                as="p"
+                className={styles.gridTitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                0,01 мм
+              </InViewStyle>
+              <InViewStyle
+                as="span"
+                className={styles.gridSubtitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Шаг измерения
+              </InViewStyle>
             </div>
             <div className={clsx(styles.gridItem, styles.gridItem_4)}>
-              <p className={styles.gridTitle}>0,01°</p>
-              <span className={styles.gridSubtitle}>Разрешение </span>
+              <InViewStyle
+                as="p"
+                className={styles.gridTitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                0,01°
+              </InViewStyle>
+              <InViewStyle
+                as="span"
+                className={styles.gridSubtitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Разрешение
+              </InViewStyle>
             </div>
             <div className={clsx(styles.gridItem, styles.gridItem_5)}>
-              <p className={styles.gridTitle}>-20...+35 °C</p>
-              <span className={styles.gridSubtitle}>Рабочая температура</span>
+              <InViewStyle
+                as="p"
+                className={styles.gridTitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                -20...+35 °C
+              </InViewStyle>
+              <InViewStyle
+                as="span"
+                className={styles.gridSubtitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Рабочая температура
+              </InViewStyle>
             </div>
             <div className={clsx(styles.gridItem, styles.gridItem_6)}>
-              <p className={styles.gridTitle}>±0,02 мм</p>
-              <span className={styles.gridSubtitle}>Погрешность </span>
+              <InViewStyle
+                as="p"
+                className={styles.gridTitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                ±0,02 мм
+              </InViewStyle>
+              <InViewStyle
+                as="span"
+                className={styles.gridSubtitle}
+                initialClass="bottomToTop"
+                animationClass="visible"
+                triggerOnce
+              >
+                Погрешность
+              </InViewStyle>
             </div>
           </div>
           <div className={clsx(styles.item, styles.item_2)}>
             <Image
+              ref={img2Ref as any}
               width={745}
               height={745}
               className={styles.img_2}
+              style={{ transform: `translateY(${img2Offset}px)` }}
               src={"/landing_indicator/digital/2.png"}
               alt={"центровка вала"}
             />
