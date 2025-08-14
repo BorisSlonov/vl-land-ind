@@ -28,6 +28,7 @@
 }
 
 .a {
+    overflow: hidden;
     position: absolute;
     bottom: 15%;
     display: block;
@@ -45,10 +46,25 @@
     transition: all .3s;
 }
 
-.a:hover {
-    opacity: .9;
+.a span {
+    position: relative;
+    z-index: 2;
+}
+
+.a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    top: 100%;
     background-color: var(--color-primary);
-    color: #fff;
+    border-radius: inherit;
+    transition: top 0.3s ease;
+    /* добавил анимацию */
+}
+
+
+.a:hover::before {
+    top: 0;
 }
 
 .h1 {

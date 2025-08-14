@@ -41,9 +41,9 @@ const Form = () => {
   const validateForm = () => {
     const newErrors: FormErrors = {};
 
-    if (!formData.fullName) newErrors.fullName = "Это поле обязательное";
-    if (!formData.phone) newErrors.phone = "Это поле обязательное";
-    if (!formData.email) newErrors.email = "Это поле обязательное";
+    if (!formData.fullName) newErrors.fullName = "";
+    if (!formData.phone) newErrors.phone = "";
+    if (!formData.email) newErrors.email = "";
     else if (!/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(formData.email))
       newErrors.email = "Неверный формат почты";
     if (!formData.privacy) newErrors.privacy = "error";

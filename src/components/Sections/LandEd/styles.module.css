@@ -97,6 +97,7 @@
 .cta svg {
     margin-bottom: -1px;
     transition: all .3s;
+    width: 24px;
 }
 
 .cta:hover svg {
@@ -131,7 +132,6 @@
     /* clip overflowed content */
 }
 
-.card:nth-child(1) {}
 
 /* Внутренние элементы карточки — удобно переиспользовать */
 .card__badge {

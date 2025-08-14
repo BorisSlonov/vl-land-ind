@@ -163,7 +163,7 @@ h6 {
 .container {
   width: 100%;
   max-width: 1600px;
-  padding: 0 40px;
+  padding: 0 80px;
   margin: 0 auto;
 }
 
@@ -177,6 +177,12 @@ h6 {
 
 .h2_mb24 {
   margin-bottom: 24px;
+}
+
+@media(max-width:1023px) {
+  .container {
+    padding: 0 40px;
+  }
 }
 
 

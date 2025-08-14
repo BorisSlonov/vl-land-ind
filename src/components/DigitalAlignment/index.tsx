@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { InViewStyle } from "@/shared/ui/InViewStyle";
+import SpecsToggle from "@/components/DigitalAlignment/SpecsToggle";
 
 const DigitalAlignment = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -12,6 +13,7 @@ const DigitalAlignment = () => {
   const img2Ref = useRef<HTMLImageElement | null>(null);
   const [img1Offset, setImg1Offset] = useState(0);
   const [img2Offset, setImg2Offset] = useState(0);
+  const [showAllSpecs, setShowAllSpecs] = useState(false);
 
   useEffect(() => {
     const handle = () => {
@@ -43,151 +45,212 @@ const DigitalAlignment = () => {
     >
       <div className="container">
         <div className={styles.header}>
-          <h2 className={clsx("h2", styles.h2)}>
-            Простая и надёжная центровка
-            <span className={styles.accColor}> с цифровым подходом</span>
-          </h2>
-          <p className={styles.subtitle}>
-            <span className={styles.bold}>VIBRO-LASER INDICATOR</span>{" "}
-            <span className={styles.op08}>
-              — это новое решение для центровки валов с использованием
-              электронных индикаторов и встроенного инклинометра. Всё, что нужно
-              для работы — уже в комплекте: надёжный крепёж, точные датчики и
-              удобное приложение.
-            </span>
-          </p>
+          <div className={styles.headerLeft}>
+            <h2 className={clsx("h2", styles.h2)}>
+              Простая и надёжная центровка
+              <span className={styles.accColor}> с цифровым подходом</span>
+            </h2>
+            <p className={styles.subtitle}>
+              <span className={styles.bold}>VIBRO-LASER INDICATOR</span>{" "}
+              <span className={styles.op08}>
+                — это новое решение для центровки валов с использованием
+                электронных индикаторов и встроенного инклинометра. Всё, что
+                нужно для работы — уже в комплекте: надёжный крепёж, точные
+                датчики и удобное приложение.
+              </span>
+            </p>
+          </div>
+          <div className={styles.headerRight}>
+            <SpecsToggle
+              showAll={showAllSpecs}
+              onShowAll={() => setShowAllSpecs(true)}
+              onBack={() => setShowAllSpecs(false)}
+            />
+          </div>
         </div>
         <div className={styles.body}>
-          <div className={clsx(styles.item, styles.item_1)}>
-            <div className={clsx(styles.gridItem, styles.gridItem_1)}>
-              <Image
-                ref={img1Ref as any}
-                width={745}
-                height={228}
-                className={styles.img_1}
-                style={{ transform: `translateY(${img1Offset}px)` }}
-                src={"/landing_indicator/digital/1.png"}
-                alt={"Электронные индикаторы"}
-              />
-              <InViewStyle
-                as="p"
-                className={styles.gridTitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Электронные индикаторы
-              </InViewStyle>
-              <InViewStyle
-                as="span"
-                className={styles.gridSubtitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Тип датчика
-              </InViewStyle>
-            </div>
-            <div className={clsx(styles.gridItem, styles.gridItem_2)}>
-              <InViewStyle
-                as="p"
-                className={styles.gridTitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                20–450 мм
-              </InViewStyle>
-              <InViewStyle
-                as="span"
-                className={styles.gridSubtitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Диаметр валов
-              </InViewStyle>
-            </div>
-            <div className={clsx(styles.gridItem, styles.gridItem_3)}>
-              <InViewStyle
-                as="p"
-                className={styles.gridTitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                0,01 мм
-              </InViewStyle>
-              <InViewStyle
-                as="span"
-                className={styles.gridSubtitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Шаг измерения
-              </InViewStyle>
-            </div>
-            <div className={clsx(styles.gridItem, styles.gridItem_4)}>
-              <InViewStyle
-                as="p"
-                className={styles.gridTitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                0,01°
-              </InViewStyle>
-              <InViewStyle
-                as="span"
-                className={styles.gridSubtitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Разрешение
-              </InViewStyle>
-            </div>
-            <div className={clsx(styles.gridItem, styles.gridItem_5)}>
-              <InViewStyle
-                as="p"
-                className={styles.gridTitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                -20...+35 °C
-              </InViewStyle>
-              <InViewStyle
-                as="span"
-                className={styles.gridSubtitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Рабочая температура
-              </InViewStyle>
-            </div>
-            <div className={clsx(styles.gridItem, styles.gridItem_6)}>
-              <InViewStyle
-                as="p"
-                className={styles.gridTitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                ±0,02 мм
-              </InViewStyle>
-              <InViewStyle
-                as="span"
-                className={styles.gridSubtitle}
-                initialClass="bottomToTop"
-                animationClass="visible"
-                triggerOnce
-              >
-                Погрешность
-              </InViewStyle>
-            </div>
+          <div
+            className={clsx(
+              styles.item,
+              styles.item_1,
+              showAllSpecs && styles.item_1_showAll
+            )}
+          >
+            {showAllSpecs ? (
+              <div className={clsx(styles.gridItem, styles.gridItem_7)}>
+                <p className={styles.specsTitle}>ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</p>
+                <div className={styles.specsTable}>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>Диаметр валов</span>
+                    <span className={styles.specValue}>20–450 мм</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>
+                      Предел допускаемой основной погрешности
+                    </span>
+                    <span className={styles.specValue}>±0,02 мм</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>Диапазон измерений</span>
+                    <span className={styles.specValue}>0–12,5 мм</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>Шаг измерения</span>
+                    <span className={styles.specValue}>0,01 мм</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>
+                      Условия эксплуатации
+                    </span>
+                    <span className={styles.specValue}>-20…+35 0С</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>Число индикаторов</span>
+                    <span className={styles.specValue}>2 шт.</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>
+                      Тип измерительного датчика
+                    </span>
+                    <span className={styles.specValue}>
+                      Электронный индикатор
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className={clsx(styles.gridItem, styles.gridItem_1)}>
+                  <Image
+                    ref={img1Ref as any}
+                    width={745}
+                    height={228}
+                    className={styles.img_1}
+                    style={{ transform: `translateY(${img1Offset}px)` }}
+                    src={"/landing_indicator/digital/1.png"}
+                    alt={"Электронные индикаторы"}
+                  />
+                  <InViewStyle
+                    as="p"
+                    className={styles.gridTitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Электронные индикаторы
+                  </InViewStyle>
+                  <InViewStyle
+                    as="span"
+                    className={styles.gridSubtitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Тип датчика
+                  </InViewStyle>
+                </div>
+                <div className={clsx(styles.gridItem, styles.gridItem_2)}>
+                  <InViewStyle
+                    as="p"
+                    className={styles.gridTitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    20–450 мм
+                  </InViewStyle>
+                  <InViewStyle
+                    as="span"
+                    className={styles.gridSubtitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Диаметр валов
+                  </InViewStyle>
+                </div>
+                <div className={clsx(styles.gridItem, styles.gridItem_3)}>
+                  <InViewStyle
+                    as="p"
+                    className={styles.gridTitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    0,01 мм
+                  </InViewStyle>
+                  <InViewStyle
+                    as="span"
+                    className={styles.gridSubtitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Шаг измерения
+                  </InViewStyle>
+                </div>
+                <div className={clsx(styles.gridItem, styles.gridItem_4)}>
+                  <InViewStyle
+                    as="p"
+                    className={styles.gridTitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    0,01°
+                  </InViewStyle>
+                  <InViewStyle
+                    as="span"
+                    className={styles.gridSubtitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Разрешение
+                  </InViewStyle>
+                </div>
+                <div className={clsx(styles.gridItem, styles.gridItem_5)}>
+                  <InViewStyle
+                    as="p"
+                    className={styles.gridTitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    -20...+35 °C
+                  </InViewStyle>
+                  <InViewStyle
+                    as="span"
+                    className={styles.gridSubtitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Рабочая температура
+                  </InViewStyle>
+                </div>
+                <div className={clsx(styles.gridItem, styles.gridItem_6)}>
+                  <InViewStyle
+                    as="p"
+                    className={styles.gridTitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    ±0,02 мм
+                  </InViewStyle>
+                  <InViewStyle
+                    as="span"
+                    className={styles.gridSubtitle}
+                    initialClass="bottomToTop"
+                    animationClass="visible"
+                    triggerOnce
+                  >
+                    Погрешность
+                  </InViewStyle>
+                </div>
+              </>
+            )}
           </div>
           <div className={clsx(styles.item, styles.item_2)}>
             <Image

@@ -141,9 +141,7 @@
     color: var(--color-primary);
 }
 
-.container {
-    max-width: 1120px;
-}
+
 
 @media(max-width:1023px) {
     .footer {

@@ -46,7 +46,7 @@ const LandingIntro = () => {
           </div>
           <div className={clsx(styles.item, styles.item_bot)}>
             <a className={styles.a} href="#contacts">
-              Оставить заявку
+              <span>Оставить заявку</span>
             </a>
           </div>
         </div>
