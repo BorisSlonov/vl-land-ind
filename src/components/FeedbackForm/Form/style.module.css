@@ -113,13 +113,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #ffffffb9;
+  background-color: var(--color-black);
   backdrop-filter: blur(2px);
 }
 
 .successMessageP {
-  font-size: 20px;
-  color: var(--color-black);
+  font-size: clamp(16px, 2vw, 24px);
+  color: var(--color-primary);
   text-align: center;
   padding-left: 20px;
   padding-right: 20px;
