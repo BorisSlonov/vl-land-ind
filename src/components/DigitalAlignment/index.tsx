@@ -112,7 +112,7 @@ const DigitalAlignment = () => {
                   </div>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>
-                      Тип измерительного датчика
+                      Тип измерительного датчика (в зависимости от комплекта)
                     </span>
                     <span className={styles.specValue}>
                       Стрелочный индикатор / Электронный индикатор
