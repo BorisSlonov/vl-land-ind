@@ -14,6 +14,8 @@
 
 .topLeft {
     flex-basis: 50%;
+    position: relative;
+    z-index: 2;
 }
 
 .title {
@@ -31,17 +33,27 @@
 }
 
 .description {
-    margin-top: 24px;
-    font-size: clamp(16px, 2vw, 20px);
+    margin-top: 20px;
+    font-size: clamp(16px, 3vw, 20px);
     color: rgba(237, 237, 237, 0.60);
     max-width: 445px;
+}
+
+.description2 {
+    margin-top: 20px;
+    font-size: clamp(14px, 2vw, 16px);
+    color: rgba(237, 237, 237, 0.60);
+    max-width: 360px;
+    color: var(--color-primary);
+
+    line-height: 1.3;
 }
 
 .downloadLink {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-top: 60px;
+    margin-top: 36px;
     line-height: 1;
     border-radius: 100px;
     border: 1px solid rgba(237, 237, 237, 0.60);
@@ -53,6 +65,7 @@
 
 .downloadLink svg {
     margin-bottom: -2px;
+    transform: rotate(-90deg);
 }
 
 .downloadLink:hover {
@@ -64,13 +77,14 @@
 }
 
 .image {
-    margin-top: 120px;
+    margin-top: 100px;
     max-width: 100%;
     height: auto;
-    transform: scale(170%);
+    transform: translateX(-20%) scale(170%);
 }
 
 .bottomSection {
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -105,6 +119,7 @@
         height: 14px;
     }
 
+    .description2,
     .bottomSection,
     .description {
         font-size: 14px;

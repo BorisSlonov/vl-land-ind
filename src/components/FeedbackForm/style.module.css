@@ -1,13 +1,21 @@
 .section {
     position: relative;
     padding: 140px 0;
+}
 
+.requestSoft {
+    background-color: var(--color-black);
+    border: 1px solid var(--color-primary);
 }
 
 .body {
     display: flex;
     justify-content: center;
     gap: 40px;
+}
+
+.accColor {
+    color: var(--color-primary);
 }
 
 @media(max-width:767px) {
@@ -17,6 +25,10 @@
 
     .body {
         padding: 30px 20px;
+    }
+
+    .requestSoft:has(:global(.container)) :global(.container) {
+        padding: 0;
     }
 }
 

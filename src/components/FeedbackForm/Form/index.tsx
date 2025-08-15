@@ -9,17 +9,35 @@ type FormData = {
   phone: string;
   email: string;
   privacy: boolean;
+  requestText?: string;
 };
 
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
-const Form = () => {
+interface Props {
+  requestSoft?: boolean;
+}
+
+const Form = ({ requestSoft }: Props) => {
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     phone: "",
     email: "",
     privacy: false,
+    requestText: requestSoft
+      ? "запрос приложения VIBRO-LASER INDICATOR"
+      : undefined,
   });
+
+  useEffect(() => {
+    // если проп поменялся — синхронизируем скрытое поле
+    setFormData((prev) => ({
+      ...prev,
+      requestText: requestSoft
+        ? "запрос приложения VIBRO-LASER INDICATOR"
+        : undefined,
+    }));
+  }, [requestSoft]);
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +58,6 @@ const Form = () => {
 
   const validateForm = () => {
     const newErrors: FormErrors = {};
-
     if (!formData.fullName) newErrors.fullName = "";
     if (!formData.phone) newErrors.phone = "";
     if (!formData.email) newErrors.email = "";
@@ -60,14 +77,28 @@ const Form = () => {
     setIsSuccess(false);
 
     try {
+      // отправляем скрытое поле только если оно задано
+      const payload = { ...formData };
+      if (!requestSoft) {
+        delete payload.requestText;
+      }
+
       const res = await fetch("/api/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Failed to send feedback");
       setIsSuccess(true);
-      setFormData({ fullName: "", phone: "", email: "", privacy: false });
+      setFormData({
+        fullName: "",
+        phone: "",
+        email: "",
+        privacy: false,
+        requestText: requestSoft
+          ? "запрос приложения VIBRO-LASER INDICATOR"
+          : undefined,
+      });
     } catch (err) {
       console.error(err);
     } finally {
@@ -83,6 +114,17 @@ const Form = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
+      {/* скрытое поле только при requestSoft */}
+      {requestSoft && (
+        <input
+          type="hidden"
+          id="requestText"
+          name="requestText"
+          value={formData.requestText ?? ""}
+          readOnly
+        />
+      )}
+
       <FormItem
         id="fullName"
         label="ФИО"
@@ -109,7 +151,7 @@ const Form = () => {
       <div className={styles.formItemFooter}>
         <div className={styles.btnWrapper}>
           <button className={styles.btn} type="submit" disabled={isLoading}>
-            <span> {isLoading ? "Отправляем..." : "Отправить"}</span>
+            <span>{isLoading ? "Отправляем..." : "Отправить"}</span>
           </button>
 
           {isSuccess && (
@@ -120,6 +162,7 @@ const Form = () => {
             </div>
           )}
         </div>
+
         <div className={styles.checkbox}>
           <FormItem
             label=""
@@ -131,6 +174,7 @@ const Form = () => {
             error={errors.privacy}
           />
         </div>
+
         <div className={styles.privacyTxt}>
           Отправляя заявку, вы даёте{" "}
           <a href="/persosnal-data">согласие на обработку</a> своих персональных

@@ -4,24 +4,36 @@ import clsx from "clsx";
 
 interface Props {
   className?: string;
+  requestSoft?: boolean;
 }
 
-const FeedbackForm = ({ className }: Props) => {
+const FeedbackForm = ({ className, requestSoft }: Props) => {
   return (
-    <section className={clsx(styles.section, className)} id="contacts">
+    <section
+      className={clsx(
+        styles.section,
+        className,
+        requestSoft && styles.requestSoft
+      )}
+      id="contacts"
+    >
       <div className="container">
         <div className={styles.body}>
           <div className={clsx(styles.item, styles.itemFlex)}>
             <h2 className={clsx(styles.h2, "h2")}>
-              Сотрудничать <br /> c VIBRO-LASER
+              Сотрудничать <br /> c{" "}
+              <span className={styles.accColor}>VIBRO-LASER</span>
             </h2>
             <p className={styles.subtitle}>
-              Получите бесплатную консультацию инженера и индивидуальный подбор
-              комплекта
+              {requestSoft
+                ? `Отправьте запрос и получите файл
+для установки приложения на указанную вами электронную почту`
+                : `Получите бесплатную консультацию инженера и индивидуальный подбор
+комплекта`}
             </p>
           </div>
           <div className={styles.item}>
-            <Form />
+            <Form requestSoft={requestSoft} />
           </div>
         </div>
       </div>

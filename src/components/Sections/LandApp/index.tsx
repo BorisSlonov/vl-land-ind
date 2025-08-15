@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 import DownloadIcon from "./DownloadIcon";
+import { useModal } from "@/app/context/ModalContext";
+import FeedbackForm from "@/components/FeedbackForm";
 
 const VibroLaserIndicator: React.FC = () => {
+  const { openModal } = useModal();
   return (
     <section className={styles.section} id="app">
       <div className={"container"}>
@@ -20,12 +24,15 @@ const VibroLaserIndicator: React.FC = () => {
               линейного смещения валов, обеспечивая надежные результаты
               центровки
             </p>
+            <p className={styles.description2}>
+              Чтобы установить приложение на своё устройство, отправьте запрос
+              на получение установочного файла и мы оперативно отправим его вам
+            </p>
             <a
-              href="/apk/vibrolaserversion1.0.2.apk"
-              download={true}
+              onClick={() => openModal(() => <FeedbackForm requestSoft />)}
               className={styles.downloadLink}
             >
-              Скачать{" "}
+              Отправить запрос{" "}
               <span className={styles.downloadIcon}>
                 <DownloadIcon />
               </span>

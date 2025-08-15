@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Jost, Unbounded } from "next/font/google";
 import { COLORS_ROOT_STYLE } from "@/shared/config/colors";
+import { ModalProvider } from "./context/ModalContext";
 
 const jost = Jost({ subsets: ["latin", "cyrillic"], display: "swap" });
 const unbounded = Unbounded({
@@ -12,15 +13,23 @@ const unbounded = Unbounded({
   variable: "--font-unbounded",
 });
 export const metadata: Metadata = {
-  title:
-    "Учебный центр Vibro-Laser: обучение центровке, вибродиагностики оборудования",
+  title: "VIBRO-LASER INDICATOR — базовый комплект для центровки валов",
   description:
-    " Учебный центр повышения квалификации VIBRO-LASER: Центровка, Вибродиагностика, Тепловидение, Балансировка, Виброналадка оборудования. Возможно выездное обучение.",
+    "VIBRO-LASER INDICATOR — удобный и точный комплект для центровки валов с электронными индикаторами и встроенным инклинометром. В комплекте надёжный крепёж, датчики и приложение. Обучение, консультации и сервис.",
   openGraph: {
-    title:
-      "Учебный центр Vibro-Laser: обучение центровке, вибродиагностики оборудования",
+    title: "VIBRO-LASER INDICATOR — базовый комплект для центровки валов",
     description:
-      " Учебный центр повышения квалификации VIBRO-LASER: Центровка, Вибродиагностика, Тепловидение, Балансировка, Виброналадка оборудования. Возможно выездное обучение.",
+      "Комплект VIBRO-LASER INDICATOR — современное решение для центровки валов: электронные индикаторы, встроенный инклинометр, удобное приложение и всё для работы в одном кейсе. Обучение и поддержка инженеров.",
+    type: "website",
+    url: "https://vibro-laser.ru/",
+    images: [
+      {
+        url: "https://vibro-laser.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "VIBRO-LASER INDICATOR — комплект для центровки валов",
+      },
+    ],
   },
 };
 
@@ -73,9 +82,11 @@ export default function RootLayout({
         }}
       >
         <div dangerouslySetInnerHTML={{ __html: yandexMetricaScript }} />
-        <Header />
-        {children}
-        <Footer />
+        <ModalProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ModalProvider>
       </body>
     </html>
   );

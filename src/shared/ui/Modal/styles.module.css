@@ -1,0 +1,135 @@
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation: fadeInOverlay 0.3s ease-in-out forwards;
+    overflow-y: auto;
+    padding: 10px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal {
+    border-radius: 12px;
+    padding-right: 10px;
+    position: relative;
+    outline: none;
+    animation: fadeIn 0.3s ease-in-out forwards;
+
+    width: min(1360px, calc(100vw - 48px));
+    max-height: calc(100dvh - 48px);
+
+}
+
+.modal>section {
+    border-radius: 20px;
+}
+
+.closeButton {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    position: absolute;
+    top: 42px;
+    right: 42px;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all .3s;
+    background-color: transparent;
+}
+
+.closeButton::before,
+.closeButton::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-primary);
+}
+
+.closeButton::before {
+    transform: rotate(45deg);
+}
+
+.closeButton::after {
+    transform: rotate(-45deg);
+}
+
+.closeButton:hover {
+    opacity: .7;
+}
+
+.closeButton svg path {
+    stroke: var(--color-black);
+}
+
+.closeButton svg {
+    width: 20px;
+    height: 20px;
+    transition: all .3s;
+}
+
+
+/* Анимация появления */
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация скрытия */
+.fadeOut {
+    animation: fadeOutOverlay 0.3s ease-in-out forwards;
+}
+
+.modalFadeOut {
+    animation: fadeOut 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeOutOverlay {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
