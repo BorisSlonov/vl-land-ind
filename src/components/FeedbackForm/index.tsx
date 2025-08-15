@@ -20,16 +20,23 @@ const FeedbackForm = ({ className, requestSoft }: Props) => {
       <div className="container">
         <div className={styles.body}>
           <div className={clsx(styles.item, styles.itemFlex)}>
-            <h2 className={clsx(styles.h2, "h2")}>
-              Сотрудничать <br /> c{" "}
-              <span className={styles.accColor}>VIBRO-LASER</span>
-            </h2>
+            {requestSoft ? (
+              <h2 className={clsx(styles.h2, "h2")}>
+                Сотрудничать <br /> c{" "}
+                <span className={styles.accColor}>VIBRO-LASER</span>
+              </h2>
+            ) : (
+              <h2 className={clsx(styles.h2, "h2")}>
+                Купить индикатор часового типа
+                <span className={styles.accColor}> VIBRO-LASER</span>
+              </h2>
+            )}
+
             <p className={styles.subtitle}>
               {requestSoft
                 ? `Отправьте запрос и получите файл
 для установки приложения на указанную вами электронную почту`
-                : `Получите бесплатную консультацию инженера и индивидуальный подбор
-комплекта`}
+                : `Оставьте контакты и получите персональное предложение с учетом вашей задачи и сроков поставки`}
             </p>
           </div>
           <div className={styles.item}>

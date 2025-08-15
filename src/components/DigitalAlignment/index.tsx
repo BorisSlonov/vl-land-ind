@@ -209,7 +209,7 @@ const DigitalAlignment = () => {
                     animationClass="visible"
                     triggerOnce
                   >
-                    0,01°
+                    0–12,5 мм
                   </InViewStyle>
                   <InViewStyle
                     as="span"
@@ -218,7 +218,7 @@ const DigitalAlignment = () => {
                     animationClass="visible"
                     triggerOnce
                   >
-                    Разрешение
+                    Диапазон измерений
                   </InViewStyle>
                 </div>
                 <div className={clsx(styles.gridItem, styles.gridItem_5)}>

@@ -15,8 +15,8 @@ const Footer = () => {
               <LogoIcon className={styles.logo} />
             </div>
             <div className={styles.leftBottom}>
-              <p>Санкт-Петербург, ул. Шпалерная, 24 литера А</p>
-              <p>edu@vibro-laser.com</p>
+              <p>г. Санкт-Петербург, ул. Захарьевская, дом 10 литера В</p>
+              <p>info@vibro-laser.com</p>
               <p>8 (812) 900-50-51</p>
             </div>
           </div>

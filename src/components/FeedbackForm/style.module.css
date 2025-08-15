@@ -44,6 +44,7 @@
 .h2 {
     font-size: clamp(24px, 5vw, 48px);
     color: #EDEDED;
+    max-width: 600px;
     text-transform: none;
 }
 
