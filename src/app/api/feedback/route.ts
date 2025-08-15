@@ -33,7 +33,7 @@ const sendEmail = async (title: string, feedback: Record<string, string>) => {
     `<b>${label}:</b> ${value || "-"}<br />`;
 
   const payload = {
-    to: ["anna@vibro-laser.com", "slonov.dev@gmail.com"],
+    to: ["slonov.dev@gmail.com"],
     subject: title,
     text: Object.entries(feedback).reduce(
       (acc, [key, value]) => `${acc}${renderField(key, value)}`,
