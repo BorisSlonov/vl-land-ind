@@ -88,33 +88,45 @@ const DigitalAlignment = () => {
                     <span className={styles.specName}>
                       Предел допускаемой основной погрешности
                     </span>
-                    <span className={styles.specValue}>±0,02 мм</span>
+                    <span className={styles.specValue}>±0,02</span>
                   </div>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>Диапазон измерений</span>
                     <span className={styles.specValue}>0–12,5 мм</span>
                   </div>
                   <div className={styles.specRow}>
-                    <span className={styles.specName}>Шаг измерения</span>
+                    <span className={styles.specName}>
+                      Разрешающая способность
+                    </span>
                     <span className={styles.specValue}>0,01 мм</span>
                   </div>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>
                       Условия эксплуатации
                     </span>
-                    <span className={styles.specValue}>-20…+35 0С</span>
+                    <span className={styles.specValue}>-20…+50 °С</span>
                   </div>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>Число индикаторов</span>
-                    <span className={styles.specValue}>2 шт.</span>
+                    <span className={styles.specValue}>2 шт</span>
                   </div>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>
                       Тип измерительного датчика
                     </span>
                     <span className={styles.specValue}>
-                      Электронный индикатор
+                      Стрелочный индикатор / Электронный индикатор
                     </span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>
+                      Габаритные размеры системы в кейсе
+                    </span>
+                    <span className={styles.specValue}>400 × 240 × 140 мм</span>
+                  </div>
+                  <div className={styles.specRow}>
+                    <span className={styles.specName}>Вес системы в кейсе</span>
+                    <span className={styles.specValue}>2,5 кг</span>
                   </div>
                 </div>
               </div>
