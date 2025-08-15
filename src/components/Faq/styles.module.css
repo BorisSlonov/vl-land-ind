@@ -1,0 +1,15 @@
+.section {
+    padding: 140px 0 0;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.h2 {
+    margin-bottom: 60px;
+}
+
+.body {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}

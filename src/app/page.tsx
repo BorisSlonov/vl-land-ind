@@ -5,6 +5,7 @@ import DigitalAlignment from "@/components/DigitalAlignment";
 import KitSubtract from "@/components/KitSubtract";
 import LandEd from "@/components/Sections/LandEd";
 import LandApp from "@/components/Sections/LandApp";
+import Faq from "@/components/Faq";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <KitSubtract />
       <LandApp />
       <LandEd />
+      <Faq />
       <FeedbackForm />
     </main>
   );

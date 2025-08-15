@@ -10,8 +10,11 @@
 
 .body {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     gap: 40px;
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
 }
 
 .accColor {
@@ -32,9 +35,6 @@
     }
 }
 
-.item:last-child {
-    max-width: 870px;
-}
 
 .itemFlex {
     display: flex;
@@ -43,7 +43,6 @@
 
 .h2 {
     font-size: clamp(24px, 5vw, 48px);
-    font-weight: 500;
     color: #EDEDED;
     text-transform: none;
 }
@@ -52,8 +51,8 @@
     margin-top: 20px;
     font-weight: 300;
     opacity: .6;
-    max-width: 470px;
     font-size: clamp(16px, 1.5vw, 24px);
+    max-width: 500px;
 }
 
 .contacts {

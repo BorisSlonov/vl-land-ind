@@ -3,7 +3,8 @@ import { FeedBackData } from "@/shared/types";
 
 export async function POST(request: Request) {
   try {
-    const feedback: FeedBackData = await request.json();
+    const feedback: FeedBackData & { requestText?: string } =
+      await request.json();
 
     const title = `Заявка от ${feedback.name} - ${feedback.secondName} | ${feedback.companyName}`;
 
@@ -15,6 +16,9 @@ export async function POST(request: Request) {
       Телефон: feedback.phone,
       Email: feedback.email,
       Описание: feedback.description || "",
+      ...(feedback.requestText
+        ? { "Клиент запрашивает": feedback.requestText }
+        : {}),
     });
 
     return NextResponse.json({ success: true });
@@ -55,7 +59,7 @@ const sendEmail = async (title: string, feedback: Record<string, string>) => {
     if (response.ok) {
       console.log("ok");
     } else {
-      console.log("no ok");
+      console.log("no ok", result);
     }
   } catch (error) {
     console.error("Ошибка при отправке запроса:", error);

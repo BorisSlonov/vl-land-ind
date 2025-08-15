@@ -142,7 +142,7 @@ const KitSubtract = () => {
                     width={357}
                     height={357}
                     className={s.img}
-                    src={"/landing_indicator/kit/1.png"}
+                    src={"/landing_indicator/kit/6.png"}
                     alt={""}
                   />
                 </InViewStyle>

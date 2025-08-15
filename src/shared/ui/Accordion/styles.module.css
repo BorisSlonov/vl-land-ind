@@ -1,0 +1,94 @@
+.body {
+    display: grid;
+    width: 100%;
+}
+
+.item:not(:last-child) {
+    border-bottom: 1px solid #ededed21;
+}
+
+.h3 {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 60px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: all .3s;
+    font-weight: 300;
+}
+
+.h3::before,
+.h3::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 2px;
+    width: 16px;
+    border-radius: 10px;
+    background-color: #ededed;
+    transition: all .3s;
+}
+
+.h3::before {
+    transform: rotate(45deg) translateY(-50%);
+    right: 12px;
+}
+
+.h3::after {
+    transform: rotate(-45deg) translateY(-50%);
+}
+
+.active::before {
+    background-color: var(--color-primary);
+    transform: rotate(-45deg) translateY(-50%);
+    right: 9px;
+}
+
+.active::after {
+    background-color: var(--color-primary);
+    transform: rotate(45deg) translateY(-50%);
+}
+
+.p {
+    color: #ededed;
+    font-weight: 300;
+    font-size: 20px;
+    max-width: 600px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.p a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: all .3s;
+}
+
+.p a:hover {
+    color: var(--color-primaryHover);
+}
+
+
+.active+.p {
+    max-height: 250px;
+    opacity: 1;
+    padding-bottom: 30px;
+}
+
+.active {
+    color: var(--color-primary)
+}
+
+@media(max-width:767px) {
+    .h3 {
+        font-size: 20px;
+    }
+
+    .p {
+        font-size: 16px;
+    }
+}

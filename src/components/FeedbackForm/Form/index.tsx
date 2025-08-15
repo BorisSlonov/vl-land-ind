@@ -96,7 +96,7 @@ const Form = ({ requestSoft }: Props) => {
         email: "",
         privacy: false,
         requestText: requestSoft
-          ? "запрос приложения VIBRO-LASER INDICATOR"
+          ? "приложение VIBRO-LASER INDICATOR"
           : undefined,
       });
     } catch (err) {

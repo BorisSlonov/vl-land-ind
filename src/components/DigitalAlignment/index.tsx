@@ -217,7 +217,7 @@ const DigitalAlignment = () => {
                     animationClass="visible"
                     triggerOnce
                   >
-                    -20...+35 °C
+                    -20...+50 °C
                   </InViewStyle>
                   <InViewStyle
                     as="span"

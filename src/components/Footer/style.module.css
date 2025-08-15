@@ -10,6 +10,9 @@
     justify-content: space-between;
     gap: 40px;
     min-height: 270px;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .item1 {
