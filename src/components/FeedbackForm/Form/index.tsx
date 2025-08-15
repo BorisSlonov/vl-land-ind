@@ -75,9 +75,7 @@ const Form = ({ requestSoft }: Props) => {
 
     setIsLoading(true);
     setIsSuccess(false);
-
     try {
-      // отправляем скрытое поле только если оно задано
       const payload = { ...formData };
       if (!requestSoft) {
         delete payload.requestText;
@@ -88,7 +86,17 @@ const Form = ({ requestSoft }: Props) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+
       if (!res.ok) throw new Error("Failed to send feedback");
+
+      const goal = requestSoft ? "request_soft" : "lead_sent";
+      if (
+        typeof window !== "undefined" &&
+        typeof (window as any).ym === "function"
+      ) {
+        (window as any).ym(103738983, "reachGoal", goal);
+      }
+
       setIsSuccess(true);
       setFormData({
         fullName: "",
