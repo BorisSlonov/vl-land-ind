@@ -2,8 +2,8 @@
 
 set -Eeuo pipefail
 
-APP_DIR="/var/www/vibro-laser/app/vl-education-prod"  
-PM2_NAME="vl-education"              
+APP_DIR="/var/www/vibro-laser/app/vl-land-ind"  
+PM2_NAME="vl-land-ind-1"         
 REMOTE="origin"                    
 
 LOG_DIR="$APP_DIR/../logs/$PM2_NAME"
