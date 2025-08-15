@@ -83,7 +83,7 @@ const sendEmail = async (subject: string, feedback: Record<string, string>) => {
   );
 
   const payload = {
-    to: ["slonov.dev@gmail.com"],
+    to: ["anna@vibro-laser.com"],
     subject,
     text: html,
     html,
