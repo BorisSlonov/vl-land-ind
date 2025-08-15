@@ -1,8 +1,17 @@
+"use client";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 
 export default function PrivacyPolicy() {
+  const [origin, setOrigin] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setOrigin(window.location.origin);
+    }
+  }, []);
   return (
     <>
       <Head>
@@ -43,7 +52,7 @@ export default function PrivacyPolicy() {
                   1.2. Настоящая политика Оператора в отношении обработки
                   персональных данных (далее — Политика) применяется ко всей
                   информации, которую Оператор может получить о посетителях
-                  веб-сайта https://индикатор-часового-типа.рф/.
+                  веб-сайта {origin}.
                 </li>
               </ul>
             </section>
@@ -66,7 +75,7 @@ export default function PrivacyPolicy() {
                   2.3. Веб-сайт — совокупность графических и информационных
                   материалов, а также программ для ЭВМ и баз данных,
                   обеспечивающих их доступность в сети интернет по сетевому
-                  адресу https://индикатор-часового-типа.рф/.
+                  адресу {origin}.
                 </li>
                 <li>
                   2.4. Информационная система персональных данных — совокупность
@@ -103,7 +112,7 @@ export default function PrivacyPolicy() {
                 <li>
                   2.8. Персональные данные — любая информация, относящаяся прямо
                   или косвенно к определенному или определяемому Пользователю
-                  веб-сайта https://индикатор-часового-типа.рф/.
+                  веб-сайта {origin}.
                 </li>
                 <li>
                   2.9. Персональные данные, разрешенные субъектом персональных
@@ -117,7 +126,7 @@ export default function PrivacyPolicy() {
                 </li>
                 <li>
                   2.10. Пользователь — любой посетитель веб-сайта
-                  https://индикатор-часового-типа.рф/.
+                  {origin}.
                 </li>
                 <li>
                   2.11. Предоставление персональных данных — действия,
@@ -555,7 +564,7 @@ export default function PrivacyPolicy() {
                 <li>
                   12.3. Актуальная версия Политики в свободном доступе
                   расположена в сети Интернет по адресу
-                  https://индикатор-часового-типа.рф/.
+                  {origin}.
                 </li>
               </ul>
             </section>
