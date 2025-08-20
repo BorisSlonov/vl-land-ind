@@ -171,7 +171,7 @@ const DigitalAlignment = () => {
                     animationClass="visible"
                     triggerOnce
                   >
-                    20–450 мм
+                    20–500 мм
                   </InViewStyle>
                   <InViewStyle
                     as="span"

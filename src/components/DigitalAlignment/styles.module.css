@@ -218,7 +218,7 @@
 
 .specRow:nth-child(odd) {
     border-radius: 15px;
-    background: rgba(163, 162, 162, 0.20);
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .specName {
