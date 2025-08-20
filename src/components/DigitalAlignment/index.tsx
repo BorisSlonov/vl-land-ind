@@ -84,7 +84,7 @@ const DigitalAlignment = () => {
                 <div className={styles.specsTable}>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>Диаметр валов</span>
-                    <span className={styles.specValue}>20–450 мм</span>
+                    <span className={styles.specValue}>20–500 мм</span>
                   </div>
                   <div className={styles.specRow}>
                     <span className={styles.specName}>
