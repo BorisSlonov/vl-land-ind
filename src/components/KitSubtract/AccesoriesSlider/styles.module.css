@@ -83,7 +83,7 @@
 
 .cardTitle {
     margin-top: 16px;
-    font-size: clamp(16px, 2vw, 20px);
+    font-size: clamp(16px, 2vw, 32px);
 }
 
 .cardQty {
