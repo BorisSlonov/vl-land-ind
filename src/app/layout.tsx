@@ -77,13 +77,6 @@ export default function RootLayout({
               alt=""
             />
           </div>
-          <div>
-            <img
-              src="https://mc.yandex.ru/watch/103738983"
-              style={{ position: "absolute", left: "-9999px" }}
-              alt=""
-            />
-          </div>
         </noscript>
         <ModalProvider>
           <Header />
