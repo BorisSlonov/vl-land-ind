@@ -21,7 +21,7 @@ const KitSubtract = () => {
           <div className={s.body}>
             <KitItemCard
               imgSrc="/landing_indicator/kit/1.png"
-              name="Электронный индикатор"
+              name="Электронный / Стрелочный индикатор"
               info="2 шт."
               itemClassName={s.item_1}
             />
