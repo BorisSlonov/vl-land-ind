@@ -81,9 +81,9 @@ const sendEmail = async (subject: string, feedback: Record<string, string>) => {
     (acc, [k, v]) => acc + renderField(k, v),
     ""
   );
-
+  // "anna@vibro-laser.com"
   const payload = {
-    to: ["anna@vibro-laser.com"],
+    to: ["slonov.dev@gmail.com"],
     subject,
     text: html,
     html,
