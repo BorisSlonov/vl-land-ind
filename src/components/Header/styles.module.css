@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 1920px;
   top: 0;
-  z-index: 5;
+  z-index: 1000;
   transition: all .3s;
   will-change: background, background-filter;
 }

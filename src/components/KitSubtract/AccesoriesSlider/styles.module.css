@@ -1,0 +1,105 @@
+.section {
+    padding-top: 140px;
+}
+
+@media(max-width:1023px) {
+    .section {
+        padding-top: 70px;
+    }
+}
+
+.headerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.title {
+    text-transform: uppercase;
+}
+
+.navigationButtons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    border: 1px solid #CCCCCC66;
+    border-radius: 50px;
+    background: transparent;
+}
+
+.arrow {
+    width: 20px;
+}
+
+.arrow path {
+    fill: #ccc;
+}
+
+.arrowLeft {
+    transform: rotate(-135deg);
+}
+
+.arrowRight {
+    transform: rotate(45deg);
+}
+
+.swiper {
+    overflow: visible;
+}
+
+.swiperSlide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 315px;
+}
+
+.cardImgWrap {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.cardTitle {
+    margin-top: 16px;
+    font-size: clamp(16px, 2vw, 20px);
+}
+
+.cardQty {
+    opacity: .6;
+    font-size: clamp(14px, 1.5vw, 18px);
+}
+
+@media(max-width:600px) {
+    .swiper {
+        padding-bottom: 90px;
+    }
+
+    .navigationButtons {
+        position: absolute;
+        z-index: 99;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

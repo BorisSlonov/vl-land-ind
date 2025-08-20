@@ -2,6 +2,8 @@ import clsx from "clsx";
 import s from "./styles.module.css";
 import Image from "next/image";
 import { InViewStyle } from "@/shared/ui/InViewStyle";
+import KitItemCard from "./KitItemCard";
+import AccesoriesSlider from "./AccesoriesSlider";
 
 const KitSubtract = () => {
   return (
@@ -17,142 +19,52 @@ const KitSubtract = () => {
             для переноски
           </p>
           <div className={s.body}>
-            <div className={clsx(s.item, s.item_1)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/1.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Электронный индикатор</p>
-              <p className={s.prodInfo}>2 шт.</p>
-            </div>
-            <div className={clsx(s.item, s.item_2)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/2.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Цепное крепление</p>
-              <p className={s.prodInfo}>2 шт. | В сборе</p>
-            </div>
-            <div className={clsx(s.item, s.item_7)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/7.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Измерительная планка</p>
-              <p className={s.prodInfo}>1 шт.</p>
-            </div>
-            <div className={clsx(s.item, s.item_3)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/3.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Инклинометр</p>
-              <p className={s.prodInfo}>1 шт.</p>
-            </div>
-            <div className={clsx(s.item, s.item_4)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/4.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Удлинительная цепь</p>
-              <p className={s.prodInfo}>2 шт.</p>
-            </div>
-            <div className={clsx(s.item, s.item_5)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/5.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Измерительная рулетка</p>
-              <p className={s.prodInfo}>1 шт.</p>
-            </div>
-            <div className={clsx(s.item, s.item_1)}>
-              <div className={s.imgWrapper}>
-                <InViewStyle
-                  initialClass="bottomToTop"
-                  animationClass="visible"
-                  triggerOnce
-                >
-                  <Image
-                    width={357}
-                    height={357}
-                    className={s.img}
-                    src={"/landing_indicator/kit/6.png"}
-                    alt={""}
-                  />
-                </InViewStyle>
-              </div>
-              <p className={s.prodName}>Затяжной ключ</p>
-              <p className={s.prodInfo}>1 шт.</p>
-            </div>
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/1.png"
+              name="Электронный индикатор"
+              info="2 шт."
+              itemClassName={s.item_1}
+            />
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/2.png"
+              name="Цепное крепление"
+              info="2 шт. | В сборе"
+              itemClassName={s.item_2}
+            />
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/7.png"
+              name="Измерительная планка"
+              info="1 шт."
+              itemClassName={s.item_7}
+            />
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/3.png"
+              name="Инклинометр"
+              info="1 шт."
+              itemClassName={s.item_3}
+            />
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/4.png"
+              name="Удлинительная цепь"
+              info="2 шт."
+              itemClassName={s.item_4}
+            />
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/5.png"
+              name="Измерительная рулетка"
+              info="1 шт."
+              itemClassName={s.item_5}
+            />
+            <KitItemCard
+              imgSrc="/landing_indicator/kit/6.png"
+              name="Затяжной ключ"
+              info="1 шт."
+              itemClassName={s.item_1}
+            />
           </div>
         </div>
       </div>
+      <AccesoriesSlider />
     </section>
   );
 };

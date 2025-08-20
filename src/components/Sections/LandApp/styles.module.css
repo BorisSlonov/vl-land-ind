@@ -1,5 +1,5 @@
 .section {
-    padding: 280px 0 140px;
+    padding: 140px 0;
 }
 
 .container {
@@ -129,7 +129,7 @@
 
 @media(max-width: 1080px) {
     .section {
-        padding: 70px 0 70px;
+        padding: 70px 0;
     }
 
     .image {
