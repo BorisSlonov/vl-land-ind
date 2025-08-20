@@ -78,6 +78,7 @@ const AccesoriesSlider = () => {
                     alt={a.title}
                     width={320}
                     height={220}
+                    loading="eager"
                     className={styles.cardImg}
                   />
                 </div>
