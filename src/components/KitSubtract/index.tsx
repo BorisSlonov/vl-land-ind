@@ -20,6 +20,12 @@ const KitSubtract = () => {
           </p>
           <div className={s.body}>
             <KitItemCard
+              imgSrc="/landing_indicator/kit/8.png"
+              name="Базовый комплект для&nbsp;центровки валов"
+              info="1 шт."
+              itemClassName={s.item_1}
+            />
+            <KitItemCard
               imgSrc="/landing_indicator/kit/1.png"
               name="Электронный / Стрелочный индикатор"
               info="2 шт."
