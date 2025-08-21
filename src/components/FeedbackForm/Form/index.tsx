@@ -94,7 +94,7 @@ const Form = ({ requestSoft }: Props) => {
         typeof window !== "undefined" &&
         typeof (window as any).ym === "function"
       ) {
-        (window as any).ym(103738983, "reachGoal", goal);
+        (window as any).ym(103833901, "reachGoal", goal);
       }
 
       setIsSuccess(true);
