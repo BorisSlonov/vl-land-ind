@@ -185,7 +185,7 @@ const Form = ({ requestSoft }: Props) => {
 
         <div className={styles.privacyTxt}>
           Отправляя заявку, вы даёте{" "}
-          <a href="/persosnal-data">согласие на обработку</a> своих персональных
+          <a href="/personal-data">согласие на обработку</a> своих персональных
           данных в соответствии с{" "}
           <a href="/privacy-policy">политикой конфиденциальности</a>
         </div>
