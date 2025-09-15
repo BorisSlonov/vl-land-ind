@@ -17,7 +17,7 @@ const Footer = () => {
             <div className={styles.leftBottom}>
               <p>г. Санкт-Петербург, ул. Захарьевская, дом 10 литера В</p>
               <p>info@vibro-laser.com</p>
-              <p>8 (812) 900-50-51</p>
+              <p>+7 981 898 16 66</p>
             </div>
           </div>
 
