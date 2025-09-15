@@ -22,7 +22,7 @@ export const links: HeaderLink[] = [
   },
   {
     linkText: "Обучение",
-    link: "/#types-of-training",
+    link: "/#education-center",
   },
   {
     linkText: "Контакты",

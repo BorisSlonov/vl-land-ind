@@ -87,7 +87,11 @@ const CARDS: ProgramCard[] = [
 
 export default function UcpkSection() {
   return (
-    <section className={styles.section} aria-labelledby="ucpk-title">
+    <section
+      className={styles.section}
+      id="education-center"
+      aria-labelledby="ucpk-title"
+    >
       <div className="container">
         <div className={styles.grid}>
           {/* Левая часть */}

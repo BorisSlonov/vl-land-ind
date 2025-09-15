@@ -28,8 +28,8 @@ const MobileMenu = ({ closeMenuHandler, showMenu }: Props) => {
         </button>
       </div>
       <LinksList closeMenuHandler={closeMenuHandler} />
-      <Link className={styles.phone} href={"tel:8(812)900-50-51"}>
-        8 (812) 900-50-51
+      <Link className={styles.phone} href={"tel:+7(981)898-16-66"}>
+        +7 981 898 16 66
       </Link>
     </div>
   );
