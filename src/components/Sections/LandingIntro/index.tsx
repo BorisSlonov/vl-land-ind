@@ -206,8 +206,8 @@ const LandingIntro = () => {
             <div className={clsx(styles.item, styles.item_top)}>
               <h1 ref={h1Ref} className={clsx(styles.h1, "h1")}>
                 <span>
-                  Индикатор часового типа для центровки валов VIBRO-LASER
-                  INDICATOR
+                  Индикатор часового типа для{"\u00A0"}центровки валов
+                  VIBRO-LASER INDICATOR
                 </span>
               </h1>
               <div ref={textRef} className={styles.p}>
