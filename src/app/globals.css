@@ -15,7 +15,9 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100lvh;
+  /* Fallback + stable height on mobile to avoid jumps */
+  min-height: 100vh;   /* fallback for older browsers */
+  min-height: 100svh;  /* stable height when bars show/hide */
   align-items: center;
   background: var(--dark, #040404);
 }

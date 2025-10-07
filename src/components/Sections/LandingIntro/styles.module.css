@@ -2,6 +2,7 @@
     padding-top: 0;
     position: relative;
     min-height: 500lvh;
+    min-height: 500svh;
     background-color: #95A3B3;
 }
 
