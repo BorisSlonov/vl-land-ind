@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,7 +14,10 @@ const unbounded = Unbounded({
   display: "swap",
   variable: "--font-unbounded",
 });
+const CANONICAL_HOST =
+  "\u0438\u043d\u0434\u0438\u043a\u0430\u0442\u043e\u0440-\u0447\u0430\u0441\u043e\u0432\u043e\u0433\u043e-\u0442\u0438\u043f\u0430.\u0440\u0444";
 export const metadata: Metadata = {
+  metadataBase: new URL(`https://${CANONICAL_HOST}`),
   title: "Индикатор часового типа для центровки валов — VIBRO-LASER",
   description:
     "VIBRO-LASER INDICATOR — удобный и точный комплект для центровки валов с электронными индикаторами и встроенным инклинометром. В комплекте надёжный крепёж, датчики и приложение. Обучение, консультации и сервис.",
@@ -41,12 +44,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={unbounded.variable}>
       <head>
+        <link rel="canonical" href={`https://${CANONICAL_HOST}/`} />
         <style dangerouslySetInnerHTML={{ __html: COLORS_ROOT_STYLE }} />
       </head>
       <body
-        className={`${jost.className} ${unbounded.variable}`}
+        className={`${jost.className}`}
         style={{
           overflowX: "hidden",
           display: "flex",

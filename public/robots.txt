@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+Host: индикатор-часового-типа.рф
+Sitemap: https://индикатор-часового-типа.рф/sitemap.xml

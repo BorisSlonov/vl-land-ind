@@ -1,6 +1,5 @@
 :root {
   color-scheme: light;
-  --font-unbounded: 'Unbounded', sans-serif;
 }
 
 * {
@@ -109,7 +108,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-unbounded), sans-serif;
+  font-family: var(--font-unbounded, 'Unbounded', sans-serif);
 }
 
 .fadeIn,
