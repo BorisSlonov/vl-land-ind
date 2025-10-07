@@ -1,7 +1,6 @@
 .headerWrap {
   position: fixed;
   width: 100%;
-  max-width: 1920px;
   top: 0;
   z-index: 1000;
   transition: all .3s;
@@ -13,7 +12,7 @@
 }
 
 .header {
-  padding: 16px 0;
+  padding: 8px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,9 +23,14 @@
   display: flex;
 }
 
+.logoLink svg {
+  max-width: 140px;
+}
+
 .logo {
   display: flex;
   width: 100%;
+  max-width: 200px;
 }
 
 .headerContent {

@@ -27,12 +27,11 @@ const Header = ({ className }: Props) => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      const vh = window.innerHeight || 0;
 
-      // Включаем фон под хедер после 50px
-      setScrolled(currentScrollY >= 0);
+      // фон – как только прокрутили >50 px
+      setScrolled(currentScrollY > 50);
 
-      // Прячем при скролле вниз (после 50px)
+      // скрываем при прокрутке вниз (тоже после 50 px)
       if (currentScrollY > 50 && currentScrollY > lastScrollY) {
         setTopScroll(true);
       } else if (currentScrollY < lastScrollY || currentScrollY <= 50) {
@@ -42,14 +41,8 @@ const Header = ({ className }: Props) => {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleScroll);
-    // initial call
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   return (
@@ -57,7 +50,8 @@ const Header = ({ className }: Props) => {
       <div
         className={clsx(
           styles.headerWrap,
-          scrolled ? styles.headerWrap_bg : undefined
+          scrolled ? styles.headerWrap_bg : undefined,
+          topScroll ? styles.headerWrap_hide : undefined
         )}
       >
         <div className="container">
@@ -89,3 +83,4 @@ const Header = ({ className }: Props) => {
 };
 
 export default Header;
+

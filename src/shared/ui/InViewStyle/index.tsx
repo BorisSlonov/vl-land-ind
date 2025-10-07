@@ -13,6 +13,11 @@ interface InViewAnimationProps extends IntersectionOptions {
    * Useful to avoid layout breaks when animating inline elements like span/p.
    */
   as?: "div" | "span" | "p";
+  /**
+   * When false, suppress applying animationClass even if element is in view.
+   * Useful to gate animations until a prerequisite finishes.
+   */
+  enabled?: boolean;
 }
 
 export function InViewStyle({
@@ -21,10 +26,15 @@ export function InViewStyle({
   animationClass,
   initialClass,
   as = "div",
+  enabled = true,
   ...props
 }: InViewAnimationProps) {
   const { ref, inView } = useInView(props);
-  const classNames = clsx(className, initialClass, inView && animationClass);
+  const classNames = clsx(
+    className,
+    initialClass,
+    enabled && inView && animationClass
+  );
 
   if (as === "span") {
     return (

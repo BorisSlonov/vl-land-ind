@@ -6,6 +6,7 @@ import { Jost, Unbounded } from "next/font/google";
 import { COLORS_ROOT_STYLE } from "@/shared/config/colors";
 import { ModalProvider } from "./context/ModalContext";
 import Script from "next/script";
+import LenisProvider from "@/components/providers/LenisProvider";
 
 const jost = Jost({ subsets: ["latin", "cyrillic"], display: "swap" });
 const unbounded = Unbounded({
@@ -14,7 +15,7 @@ const unbounded = Unbounded({
   variable: "--font-unbounded",
 });
 export const metadata: Metadata = {
-  title: "VIBRO-LASER INDICATOR — базовый комплект для центровки валов",
+  title: "Индикатор часового типа для центровки валов — VIBRO-LASER",
   description:
     "VIBRO-LASER INDICATOR — удобный и точный комплект для центровки валов с электронными индикаторами и встроенным инклинометром. В комплекте надёжный крепёж, датчики и приложение. Обучение, консультации и сервис.",
   openGraph: {
@@ -78,11 +79,13 @@ export default function RootLayout({
             />
           </div>
         </noscript>
-        <ModalProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ModalProvider>
+        <LenisProvider>
+          <ModalProvider>
+            <Header />
+            {children}
+            <Footer />
+          </ModalProvider>
+        </LenisProvider>
       </body>
     </html>
   );

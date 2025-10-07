@@ -29,7 +29,7 @@ const KitItemCard = ({
             height={357}
             className={s.img}
             src={imgSrc}
-            alt=""
+            alt={name + " " + info}
           />
         </InViewStyle>
       </div>
