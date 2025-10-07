@@ -1,9 +1,9 @@
 "use client";
-
 import React, { useEffect, useRef } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Image from "next/image";
+import Arrow from "./icons/arrow";
 
 const LandingIntro = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -14,6 +14,23 @@ const LandingIntro = () => {
   const h1Ref = useRef<HTMLHeadingElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const ctaRef = useRef<HTMLAnchorElement | null>(null);
+  const arrowRef = useRef<HTMLButtonElement | null>(null);
+
+  const handleArrowClick = () => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const vh = window.innerHeight;
+    const sectionTop = el.offsetTop;
+    const sectionHeight = el.offsetHeight;
+    const pinDuration = Math.max(1, sectionHeight - vh);
+    const endClamp = 0.8; // keep in sync with compute()
+    const target = sectionTop + endClamp * pinDuration;
+    try {
+      window.scrollTo({ top: target, behavior: "smooth" });
+    } catch (_) {
+      window.scrollTo(0, target);
+    }
+  };
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -79,8 +96,8 @@ const LandingIntro = () => {
       const phase2 = p > p1 ? (p - p1) / (1 - p1) : 0;
 
       const scaleA = 1.5 - 0.5 * phase1; // 1.5 -> 1.0
-      const scaleB = 1.0 - 0.001 * phase2;
-      const scale = phase2 > 0 ? scaleB : scaleA;
+      const scaleB = 1.0; // keep >= 1 in phase 2
+      const scale = Math.max(1, phase2 > 0 ? scaleB : scaleA);
       const driftY = 200 * phase2; // px down during phase 2
 
       // Apply vertical offset on wrapper: translateY 5vh -> 0
@@ -92,6 +109,14 @@ const LandingIntro = () => {
       // Apply scale (and late translate) on the image only
       if (imgRef.current) {
         imgRef.current.style.transform = `scale(${scale}) translateY(${driftY}px)`;
+      }
+
+      // Fade out the arrow as we approach endClamp (p -> 1)
+      const fadeStart = 0.7; // start fading at 70% of the compressed timeline
+      const fadeT = Math.max(0, Math.min(1, (p - fadeStart) / (1 - fadeStart)));
+      const arrowOpacity = 1 - fadeT; // 1 -> 0
+      if (arrowRef.current) {
+        arrowRef.current.style.opacity = String(arrowOpacity);
       }
 
       // Staged reveal of content near the end of the scroll
@@ -166,6 +191,15 @@ const LandingIntro = () => {
             alt=""
             fill
           />
+          <button
+            ref={arrowRef}
+            type="button"
+            aria-label="Scroll down"
+            onClick={handleArrowClick}
+            className={clsx(styles.arrowButton)}
+          >
+            <Arrow className={clsx(styles.arrow)} />
+          </button>
         </div>
         <div className="container">
           <div ref={contentRef} className={styles.body}>
