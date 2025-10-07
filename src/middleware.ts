@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // Canonical Unicode host (escaped to avoid source file encoding issues)
 const UNICODE_HOST =
   "\u0438\u043d\u0434\u0438\u043a\u0430\u0442\u043e\u0440-\u0447\u0430\u0441\u043e\u0432\u043e\u0433\u043e-\u0442\u0438\u043f\u0430.\u0440\u0444";
-// Known punycode form seen in redirects
+// Known punycode form observed at the edge/proxies
 const PUNYCODE_HOST = "xn-----6kcbbkhd9abgr0bscbbujwql0i.xn--p1ai";
 
 const ALLOW_HOSTS = new Set<string>([
@@ -21,6 +21,7 @@ const OUR_HOSTS = new Set<string>([
   PUNYCODE_HOST,
   `www.${PUNYCODE_HOST}`,
 ]);
+const APEX_HOSTS = new Set<string>([UNICODE_HOST, PUNYCODE_HOST]);
 
 export function middleware(req: NextRequest) {
   const url = req.nextUrl.clone();
@@ -48,12 +49,21 @@ export function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  const needsHost = host !== UNICODE_HOST;
+  // Avoid loops between unicode and punycode: accept both as-is.
+  // Only normalize `www.` -> apex and enforce HTTPS.
+  const isWww = host.startsWith("www.");
+  const apexCandidate = isWww ? host.slice(4) : host;
+  const needsWwwStrip = isWww && APEX_HOSTS.has(apexCandidate);
   const needsHttps = protoHeader !== "https";
-  if (needsHost || needsHttps) {
-    url.hostname = UNICODE_HOST;
-    url.protocol = "https:";
-    url.port = "";
+
+  if (needsWwwStrip || needsHttps) {
+    if (needsWwwStrip) {
+      url.hostname = apexCandidate; // keep punycode/unicode form unchanged
+    }
+    if (needsHttps) {
+      url.protocol = "https:";
+      url.port = "";
+    }
     return NextResponse.redirect(url, 301);
   }
 
