@@ -31,7 +31,7 @@ export default function PrivacyPolicy() {
               <h2 className={clsx(styles.h2, styles.h2_mt0)}>
                 1. Общие положения
               </h2>
-              <p className={styles.bold}>
+              <p className={styles.bold} aria-readonly>
                 Настоящая политика обработки персональных данных составлена в
                 соответствии с требованиями Федерального закона от 27.07.2006. №
                 152-ФЗ «О персональных данных» (далее — Закон о персональных
