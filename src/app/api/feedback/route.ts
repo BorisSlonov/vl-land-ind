@@ -1,6 +1,9 @@
 // app/api/feedback/route.ts
 import { NextResponse } from "next/server";
 
+const BITRIX_WEBHOOK_URL = process.env.BITRIX_WEBHOOK_URL!;
+const BITRIX_SOURCE = process.env.BITRIX_SOURCE ?? "unknown";
+
 type Incoming = {
   fullName: string;
   phone: string;
@@ -46,9 +49,7 @@ export async function POST(request: Request) {
 
     const when = new Date().toISOString();
 
-    const title = `Заявка с сайта ${siteDomain ?? "unknown"} — ${
-      data!.fullName
-    }`;
+    const title = `[${BITRIX_SOURCE}] Feedback from ${data!.fullName}`;
 
     const fields: Record<string, string> = {
       "Имя (ФИО)": data!.fullName!,
@@ -64,7 +65,25 @@ export async function POST(request: Request) {
       "Когда (ISO)": when,
     };
 
-    await sendEmail(title, fields);
+    const sourceDescription = [
+      `Host: ${siteDomain ?? "-"}`,
+      `Origin: ${origin ?? "-"}`,
+      `Referer: ${referer ?? "-"}`,
+      `IP: ${ip}`,
+      `When: ${when}`,
+    ].join("\n");
+
+    await Promise.all([
+      sendToBitrix({
+        title,
+        name: data!.fullName!,
+        phone: data!.phone!,
+        email: data!.email!,
+        comments: data!.requestText,
+        sourceDescription,
+      }),
+      sendEmail(title, fields),
+    ]);
 
     return NextResponse.json({ success: true });
   } catch (error) {
@@ -72,6 +91,43 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }
+
+const sendToBitrix = async (params: {
+  title: string;
+  name: string;
+  phone: string;
+  email: string;
+  comments?: string;
+  sourceDescription: string;
+}) => {
+  try {
+    const response = await fetch(
+      `${BITRIX_WEBHOOK_URL}/crm.lead.add.json`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fields: {
+            TITLE: params.title,
+            NAME: params.name,
+            PHONE: [{ VALUE: params.phone, VALUE_TYPE: "WORK" }],
+            EMAIL: [{ VALUE: params.email, VALUE_TYPE: "WORK" }],
+            COMPANY_TITLE: "",
+            COMMENTS: params.comments ?? "",
+            SOURCE_DESCRIPTION: params.sourceDescription,
+          },
+        }),
+      }
+    );
+
+    const result = await response.json().catch(() => null);
+    if (!response.ok) {
+      console.log("Bitrix API error", { status: response.status, result });
+    }
+  } catch (error) {
+    console.error("Ошибка при отправке в Битрикс:", error);
+  }
+};
 
 const sendEmail = async (subject: string, feedback: Record<string, string>) => {
   const renderField = (label: string, value: string) =>
