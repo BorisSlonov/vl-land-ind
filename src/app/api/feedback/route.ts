@@ -100,6 +100,7 @@ const sendToBitrix = async (params: {
   comments?: string;
   sourceDescription: string;
 }) => {
+  console.log("[Bitrix] URL =", BITRIX_WEBHOOK_URL ?? "UNDEFINED");
   try {
     const response = await fetch(
       `${BITRIX_WEBHOOK_URL}/crm.lead.add.json`,
@@ -121,9 +122,7 @@ const sendToBitrix = async (params: {
     );
 
     const result = await response.json().catch(() => null);
-    if (!response.ok) {
-      console.error("[Bitrix] error", { status: response.status, result });
-    }
+    console.log("[Bitrix] status =", response.status, "result =", JSON.stringify(result));
   } catch (error) {
     console.error("[Bitrix] fetch exception:", error);
   }
