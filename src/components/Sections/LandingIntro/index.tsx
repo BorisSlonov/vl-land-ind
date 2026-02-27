@@ -16,6 +16,13 @@ const LandingIntro = () => {
   const ctaRef = useRef<HTMLAnchorElement | null>(null);
   const arrowRef = useRef<HTMLButtonElement | null>(null);
 
+  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("contacts");
+    if (!el) return;
+    window.scrollTo({ top: el.offsetTop, behavior: "smooth" });
+  };
+
   const handleArrowClick = () => {
     const el = sectionRef.current;
     if (!el) return;
@@ -215,7 +222,7 @@ const LandingIntro = () => {
                   Индикатор часового типа VIBRO-LASER — комплект для точной
                   центровки валов с электронными индикаторами и инклинометром
                 </span>
-                <a ref={ctaRef} className={styles.a} href="#contacts">
+                <a ref={ctaRef} className={styles.a} href="#contacts" onClick={handleCtaClick}>
                   <span>Оставить заявку</span>
                 </a>
               </div>

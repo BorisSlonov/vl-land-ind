@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git status -u)"
+      "Bash(git status -u)",
+      "Bash(gh auth status)",
+      "Bash(git remote set-url vibrolaser https://github.com/vibrolaser/vl-land-ind.git)",
+      "Bash(git config --global user.name)",
+      "Bash(git config --global user.email)",
+      "Bash(git config --global credential.username)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(git push vibrolaser main)"
     ]
   }
 }
