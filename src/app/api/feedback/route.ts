@@ -122,10 +122,10 @@ const sendToBitrix = async (params: {
 
     const result = await response.json().catch(() => null);
     if (!response.ok) {
-      console.log("Bitrix API error", { status: response.status, result });
+      console.error("[Bitrix] error", { status: response.status, result });
     }
   } catch (error) {
-    console.error("Ошибка при отправке в Битрикс:", error);
+    console.error("[Bitrix] fetch exception:", error);
   }
 };
 
